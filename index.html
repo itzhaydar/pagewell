@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#162033">
+  <meta name="description" content="On-Device-OCR-PDF turns photos and scans of printed pages into searchable PDFs entirely in your browser.">
+  <title>On-Device-OCR-PDF — Searchable PDFs, on-device</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="On-Device-OCR-PDF home">
+        <span class="brand-mark" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        <span>On-Device-OCR-PDF</span>
+      </a>
+
+      <div class="privacy-pill">
+        <span class="privacy-dot" aria-hidden="true"></span>
+        Nothing uploads
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <p class="eyebrow">PRIVATE DOCUMENT TOOL</p>
+
+        <h1 id="page-title">
+          Photo of a page
+          <span aria-hidden="true">→</span>
+          searchable PDF.
+        </h1>
+
+        <p class="tagline">On-device. No upload.</p>
+
+        <p class="hero-copy">
+          Turn a photo or scan of printed text into a searchable PDF without
+          sending the document to a server. Everything happens in this browser tab.
+        </p>
+      </section>
+
+      <section class="workspace" aria-label="OCR workspace">
+
+        <div
+          id="dropZone"
+          class="drop-zone"
+          tabindex="0"
+          role="button"
+          aria-describedby="upload-help"
+        >
+          <input
+            id="fileInput"
+            class="visually-hidden"
+            type="file"
+            accept="image/jpeg,image/png,image/webp,.jpg,.jpeg,.png,.webp"
+          >
+
+          <div class="upload-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none">
+              <rect
+                x="8"
+                y="5"
+                width="32"
+                height="38"
+                rx="5"
+                stroke="currentColor"
+                stroke-width="2.2"
+              />
+              <path
+                d="M16 32l6-7 5 5 4-5 6 7"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <circle
+                cx="20"
+                cy="17"
+                r="3"
+                stroke="currentColor"
+                stroke-width="2.2"
+              />
+            </svg>
+          </div>
+
+          <h2>Drop a page here</h2>
+
+          <p id="upload-help">
+            or click to choose a JPG, PNG, or WEBP. Printed text works best.
+          </p>
+
+          <span class="browse-button">Choose image</span>
+
+          <p class="file-note">
+            Maximum 20 MB · processed locally
+          </p>
+        </div>
+
+        <div
+          id="message"
+          class="message"
+          role="alert"
+          hidden
+        ></div>
+
+        <section
+          id="editorPanel"
+          class="panel"
+          hidden
+          aria-labelledby="document-heading"
+        >
+          <div class="panel-heading">
+            <div>
+              <p class="section-label">DOCUMENT</p>
+              <h2 id="document-heading">Review your page</h2>
+            </div>
+
+            <button
+              id="startOverBtn"
+              class="text-button"
+              type="button"
+            >
+              Start over
+            </button>
+          </div>
+
+          <div class="preview-wrap">
+            <div class="preview-toolbar">
+              <span id="fileName" class="file-name">image.jpg</span>
+
+              <button
+                id="rotateBtn"
+                class="icon-button"
+                type="button"
+                aria-label="Rotate image 90 degrees clockwise"
+                title="Rotate 90°"
+              >
+                ↻ <span>Rotate</span>
+              </button>
+            </div>
+
+            <div class="preview-stage">
+              <img
+                id="previewImage"
+                alt="Uploaded page preview"
+              >
+            </div>
+          </div>
+
+          <div class="controls">
+            <label class="toggle-row">
+              <input id="enhanceToggle" type="checkbox" checked>
+
+              <span
+                class="toggle"
+                aria-hidden="true"
+              ></span>
+
+              <span>
+                <strong>Enhance for OCR</strong>
+                <small>
+                  Grayscale + contrast adjustment. The original is not uploaded.
+                </small>
+              </span>
+            </label>
+          </div>
+
+          <div class="action-row">
+            <button
+              id="extractBtn"
+              class="primary-button"
+              type="button"
+            >
+              Extract text
+            </button>
+          </div>
+
+          <div
+            id="ocrProgress"
+            class="progress-card"
+            hidden
+            aria-live="polite"
+          >
+            <div class="progress-top">
+              <strong id="ocrStatus">Preparing OCR…</strong>
+              <span id="ocrPercent">0%</span>
+            </div>
+
+            <div
+              class="progress-track"
+              aria-hidden="true"
+            >
+              <div
+                id="progressBar"
+                class="progress-bar"
+              ></div>
+            </div>
+
+            <p id="ocrDetail">
+              The first OCR run may take longer while the language model loads.
+            </p>
+          </div>
+        </section>
+
+        <section
+          id="resultPanel"
+          class="panel result-panel"
+          hidden
+          aria-labelledby="result-heading"
+        >
+          <div class="panel-heading">
+            <div>
+              <p class="section-label">RESULT</p>
+              <h2 id="result-heading">Extracted text</h2>
+            </div>
+
+            <div
+              id="confidenceBadge"
+              class="confidence-badge"
+              hidden
+            ></div>
+          </div>
+
+          <label
+            class="visually-hidden"
+            for="textOutput"
+          >
+            Extracted OCR text
+          </label>
+
+          <textarea
+            id="textOutput"
+            spellcheck="false"
+            placeholder="Extracted text will appear here…"
+          ></textarea>
+
+          <div class="result-actions">
+            <button
+              id="copyBtn"
+              class="secondary-button"
+              type="button"
+            >
+              Copy text
+            </button>
+
+            <button
+              id="downloadBtn"
+              class="primary-button"
+              type="button"
+            >
+              Download PDF
+            </button>
+          </div>
+
+          <p class="pdf-note">
+            PDF format: A4 portrait. The page image is fitted inside the page
+            and the OCR words are placed as a searchable text layer over it.
+          </p>
+
+          <p
+            id="pdfStatus"
+            class="inline-status"
+            aria-live="polite"
+          ></p>
+        </section>
+
+        <section
+          class="how-it-works"
+          aria-labelledby="how-heading"
+        >
+          <div class="section-label">HOW IT WORKS</div>
+
+          <h2 id="how-heading">
+            Your page stays in your browser.
+          </h2>
+
+          <div class="steps">
+
+            <div class="step">
+              <span>01</span>
+              <strong>Choose a page</strong>
+              <p>
+                Upload one JPG, PNG, or WEBP image.
+              </p>
+            </div>
+
+            <div class="step">
+              <span>02</span>
+              <strong>Read it on-device</strong>
+              <p>
+                Tesseract.js recognizes printed text in a browser worker.
+              </p>
+            </div>
+
+            <div class="step">
+              <span>03</span>
+              <strong>Make it searchable</strong>
+              <p>
+                pdf-lib combines the page image with a selectable OCR layer.
+              </p>
+            </div>
+
+          </div>
+        </section>
+
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        <strong>Privacy first.</strong>
+        Files stay in this browser tab. Nothing is uploaded to
+        On-Device-OCR-PDF or GitHub.
+      </p>
+
+      <p>
+        Best for printed pages. Handwriting, unusual layouts, and very large
+        images may reduce accuracy or speed.
+      </p>
+    </footer>
+
+  </div>
+
+  <noscript>
+    <div class="noscript">
+      JavaScript is required for OCR and PDF creation.
+      Please enable JavaScript in your browser.
+    </div>
+  </noscript>
+
+  <!-- pdf-lib is loaded immediately because it is lightweight enough for the UI. -->
+  <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+
+  <!-- Tesseract is intentionally NOT loaded here. app.js lazy-loads it when OCR starts. -->
+  <script src="app.js"></script>
+</body>
+</html>
