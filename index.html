@@ -3,50 +3,93 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#162033">
-  <meta name="description" content="On-Device-OCR-PDF turns photos and scans of printed pages into searchable PDFs entirely in your browser.">
-  <title>On-Device-OCR-PDF — Searchable PDFs, on-device</title>
+  <meta name="theme-color" content="#f4f1ea">
+  <meta name="description" content="Pagewell turns photos of printed pages into searchable PDFs entirely on your device.">
+  <meta name="color-scheme" content="light">
+
+  <title>Pagewell — Photo to searchable PDF</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@500;600&display=swap"
+    rel="stylesheet"
+  >
+
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
+  <div class="site-noise" aria-hidden="true"></div>
+
   <div class="app-shell">
 
+    <!-- HEADER -->
     <header class="site-header">
-      <a class="brand" href="./" aria-label="On-Device-OCR-PDF home">
-        <span class="brand-mark" aria-hidden="true">
+
+      <a class="brand" href="./" aria-label="Pagewell home">
+        <span class="brand-symbol" aria-hidden="true">
           <span></span>
           <span></span>
           <span></span>
         </span>
-        <span>On-Device-OCR-PDF</span>
+
+        <span class="brand-name">Pagewell</span>
       </a>
 
-      <div class="privacy-pill">
-        <span class="privacy-dot" aria-hidden="true"></span>
-        Nothing uploads
+      <div class="header-status">
+        <span class="status-light"></span>
+        <span>Runs on-device</span>
       </div>
+
     </header>
 
+
     <main>
+
+      <!-- HERO -->
       <section class="hero" aria-labelledby="page-title">
-        <p class="eyebrow">PRIVATE DOCUMENT TOOL</p>
+
+        <div class="hero-kicker">
+          <span class="kicker-line"></span>
+          PRIVATE DOCUMENT TOOL
+        </div>
 
         <h1 id="page-title">
-          Photo of a page
-          <span aria-hidden="true">→</span>
-          searchable PDF.
+          Turn a page
+          <em>into something searchable.</em>
         </h1>
 
-        <p class="tagline">On-device. No upload.</p>
-
-        <p class="hero-copy">
-          Turn a photo or scan of printed text into a searchable PDF without
-          sending the document to a server. Everything happens in this browser tab.
+        <p class="hero-description">
+          Photograph or scan a printed page and turn it into a searchable PDF.
+          Everything happens right here in your browser.
         </p>
+
+        <div class="hero-meta">
+          <span>
+            <i></i>
+            No upload
+          </span>
+
+          <span>
+            <i></i>
+            No account
+          </span>
+
+          <span>
+            <i></i>
+            No cloud processing
+          </span>
+        </div>
+
       </section>
 
-      <section class="workspace" aria-label="OCR workspace">
 
+      <!-- WORKSPACE -->
+      <section class="workspace" aria-label="Pagewell document workspace">
+
+        <!-- UPLOAD -->
         <div
           id="dropZone"
           class="drop-zone"
@@ -54,6 +97,7 @@
           role="button"
           aria-describedby="upload-help"
         >
+
           <input
             id="fileInput"
             class="visually-hidden"
@@ -61,47 +105,81 @@
             accept="image/jpeg,image/png,image/webp,.jpg,.jpeg,.png,.webp"
           >
 
-          <div class="upload-icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none">
-              <rect
-                x="8"
-                y="5"
-                width="32"
-                height="38"
-                rx="5"
-                stroke="currentColor"
-                stroke-width="2.2"
-              />
-              <path
-                d="M16 32l6-7 5 5 4-5 6 7"
-                stroke="currentColor"
-                stroke-width="2.2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <circle
-                cx="20"
-                cy="17"
-                r="3"
-                stroke="currentColor"
-                stroke-width="2.2"
-              />
-            </svg>
+          <div class="drop-decoration decoration-one"></div>
+          <div class="drop-decoration decoration-two"></div>
+
+          <div class="upload-card">
+
+            <div class="paper-stack" aria-hidden="true">
+              <div class="paper-back"></div>
+
+              <div class="paper-front">
+                <span class="paper-photo"></span>
+                <span class="paper-line line-one"></span>
+                <span class="paper-line line-two"></span>
+                <span class="paper-line line-three"></span>
+              </div>
+
+              <div class="scan-mark">+</div>
+            </div>
+
+            <div class="upload-copy">
+              <span class="upload-label">START WITH A PAGE</span>
+
+              <h2>Drop your page here.</h2>
+
+              <p id="upload-help">
+                Add a photo or scan of a printed document.
+              </p>
+            </div>
+
+            <span class="browse-button">
+              <span>Choose image</span>
+              <svg viewBox="0 0 16 16" aria-hidden="true">
+                <path d="M8 2v9M4.5 6.5 8 10l3.5-3.5M3 13.5h10"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"/>
+              </svg>
+            </span>
+
+            <div class="upload-note">
+              <span>JPG</span>
+              <b>·</b>
+              <span>PNG</span>
+              <b>·</b>
+              <span>WEBP</span>
+              <b>·</b>
+              <span>20 MB max</span>
+            </div>
+
           </div>
 
-          <h2>Drop a page here</h2>
+          <div class="drop-footer">
+            <span class="tiny-shield">
+              <svg viewBox="0 0 20 20" aria-hidden="true">
+                <path d="M10 2.5 16 5v4.4c0 3.7-2.5 6.5-6 8.1-3.5-1.6-6-4.4-6-8.1V5l6-2.5Z"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.3"/>
+                <path d="m7.2 10 1.8 1.8 3.8-4"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"/>
+              </svg>
+            </span>
 
-          <p id="upload-help">
-            or click to choose a JPG, PNG, or WEBP. Printed text works best.
-          </p>
+            <span>Your document stays in this browser.</span>
+          </div>
 
-          <span class="browse-button">Choose image</span>
-
-          <p class="file-note">
-            Maximum 20 MB · processed locally
-          </p>
         </div>
 
+
+        <!-- MESSAGE -->
         <div
           id="message"
           class="message"
@@ -109,115 +187,239 @@
           hidden
         ></div>
 
+
+        <!-- DOCUMENT EDITOR -->
         <section
           id="editorPanel"
-          class="panel"
+          class="panel editor-panel"
           hidden
           aria-labelledby="document-heading"
         >
-          <div class="panel-heading">
+
+          <div class="panel-top">
+
             <div>
-              <p class="section-label">DOCUMENT</p>
-              <h2 id="document-heading">Review your page</h2>
+              <span class="panel-eyebrow">01 / DOCUMENT</span>
+
+              <h2 id="document-heading">
+                Review your page.
+              </h2>
             </div>
 
             <button
               id="startOverBtn"
-              class="text-button"
+              class="quiet-button"
               type="button"
             >
-              Start over
+              <span>Start over</span>
+              <svg viewBox="0 0 16 16" aria-hidden="true">
+                <path d="M4 4l8 8M12 4l-8 8"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.4"
+                      stroke-linecap="round"/>
+              </svg>
             </button>
+
           </div>
 
-          <div class="preview-wrap">
-            <div class="preview-toolbar">
-              <span id="fileName" class="file-name">image.jpg</span>
+
+          <!-- DOCUMENT PREVIEW -->
+          <div class="document-frame">
+
+            <div class="document-toolbar">
+
+              <div class="document-info">
+                <span class="file-icon">
+                  <svg viewBox="0 0 18 18" aria-hidden="true">
+                    <path d="M5 2.5h5l3 3v10H5z"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.2"
+                          stroke-linejoin="round"/>
+                    <path d="M10 2.5v3h3"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.2"/>
+                  </svg>
+                </span>
+
+                <span id="fileName" class="file-name">image.jpg</span>
+              </div>
 
               <button
                 id="rotateBtn"
-                class="icon-button"
+                class="rotate-button"
                 type="button"
                 aria-label="Rotate image 90 degrees clockwise"
-                title="Rotate 90°"
+                title="Rotate 90 degrees"
               >
-                ↻ <span>Rotate</span>
+                <svg viewBox="0 0 18 18" aria-hidden="true">
+                  <path d="M14.5 7A5.5 5.5 0 0 0 4.3 5.1L3 7"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.4"
+                        stroke-linecap="round"/>
+                  <path d="M3 3.8v3.3h3.3"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.4"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"/>
+                  <path d="M3.5 11a5.5 5.5 0 0 0 10.2 1.9l1.3-1.9"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.4"
+                        stroke-linecap="round"/>
+                </svg>
+
+                <span>Rotate</span>
               </button>
+
             </div>
+
 
             <div class="preview-stage">
-              <img
-                id="previewImage"
-                alt="Uploaded page preview"
-              >
+
+              <div class="preview-glow"></div>
+
+              <div class="paper-preview">
+                <img
+                  id="previewImage"
+                  alt="Uploaded page preview"
+                >
+              </div>
+
             </div>
+
           </div>
 
+
+          <!-- CONTROLS -->
           <div class="controls">
-            <label class="toggle-row">
-              <input id="enhanceToggle" type="checkbox" checked>
 
-              <span
-                class="toggle"
-                aria-hidden="true"
-              ></span>
+            <label class="enhance-control">
 
-              <span>
-                <strong>Enhance for OCR</strong>
-                <small>
-                  Grayscale + contrast adjustment. The original is not uploaded.
-                </small>
+              <span class="enhance-icon">
+                <svg viewBox="0 0 20 20" aria-hidden="true">
+                  <path d="M10 2.5v15M2.5 10h15"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.2"
+                        stroke-linecap="round"/>
+                  <circle cx="10" cy="10" r="3.2"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.2"/>
+                </svg>
               </span>
+
+              <span class="enhance-copy">
+                <strong>Enhance for OCR</strong>
+                <small>Improve contrast and remove colour noise.</small>
+              </span>
+
+              <span class="switch-wrap">
+                <input
+                  id="enhanceToggle"
+                  type="checkbox"
+                  checked
+                >
+
+                <span class="switch">
+                  <span></span>
+                </span>
+              </span>
+
             </label>
+
           </div>
 
-          <div class="action-row">
+
+          <!-- OCR ACTION -->
+          <div class="editor-action">
+
             <button
               id="extractBtn"
               class="primary-button"
               type="button"
             >
-              Extract text
+              <span>Extract text</span>
+
+              <svg viewBox="0 0 18 18" aria-hidden="true">
+                <path d="M3.5 9h10M9.5 5l4 4-4 4"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"/>
+              </svg>
             </button>
+
+            <span class="action-hint">
+              OCR runs locally in your browser
+            </span>
+
           </div>
 
+
+          <!-- OCR PROGRESS -->
           <div
             id="ocrProgress"
             class="progress-card"
             hidden
             aria-live="polite"
           >
-            <div class="progress-top">
-              <strong id="ocrStatus">Preparing OCR…</strong>
-              <span id="ocrPercent">0%</span>
+
+            <div class="progress-heading">
+
+              <div class="processing-mark">
+                <span></span>
+              </div>
+
+              <div>
+                <strong id="ocrStatus">Preparing OCR…</strong>
+                <span id="ocrDetail">
+                  The first run may take a little longer while the language model loads.
+                </span>
+              </div>
+
+              <strong id="ocrPercent">0%</strong>
+
             </div>
 
-            <div
-              class="progress-track"
-              aria-hidden="true"
-            >
+            <div class="progress-track">
               <div
                 id="progressBar"
                 class="progress-bar"
               ></div>
             </div>
 
-            <p id="ocrDetail">
-              The first OCR run may take longer while the language model loads.
-            </p>
           </div>
+
         </section>
 
+
+        <!-- RESULT -->
         <section
           id="resultPanel"
           class="panel result-panel"
           hidden
           aria-labelledby="result-heading"
         >
-          <div class="panel-heading">
+
+          <div class="result-header">
+
             <div>
-              <p class="section-label">RESULT</p>
-              <h2 id="result-heading">Extracted text</h2>
+              <span class="panel-eyebrow">02 / RESULT</span>
+
+              <h2 id="result-heading">
+                Your page is searchable.
+              </h2>
+
+              <p class="result-intro">
+                Review the recognized text below, then create your PDF.
+              </p>
             </div>
 
             <div
@@ -225,119 +427,293 @@
               class="confidence-badge"
               hidden
             ></div>
+
           </div>
 
-          <label
-            class="visually-hidden"
-            for="textOutput"
-          >
-            Extracted OCR text
-          </label>
 
-          <textarea
-            id="textOutput"
-            spellcheck="false"
-            placeholder="Extracted text will appear here…"
-          ></textarea>
+          <div class="result-workspace">
 
-          <div class="result-actions">
-            <button
-              id="copyBtn"
-              class="secondary-button"
-              type="button"
-            >
-              Copy text
-            </button>
+            <div class="result-text-wrap">
 
-            <button
-              id="downloadBtn"
-              class="primary-button"
-              type="button"
-            >
-              Download PDF
-            </button>
+              <div class="result-text-heading">
+                <span>EXTRACTED TEXT</span>
+
+                <span class="live-dot">
+                  <i></i>
+                  Editable
+                </span>
+              </div>
+
+              <label
+                class="visually-hidden"
+                for="textOutput"
+              >
+                Extracted OCR text
+              </label>
+
+              <textarea
+                id="textOutput"
+                spellcheck="false"
+                placeholder="Extracted text will appear here…"
+              ></textarea>
+
+            </div>
+
           </div>
 
-          <p class="pdf-note">
-            PDF format: A4 portrait. The page image is fitted inside the page
-            and the OCR words are placed as a searchable text layer over it.
-          </p>
 
-          <p
-            id="pdfStatus"
-            class="inline-status"
-            aria-live="polite"
-          ></p>
+          <div class="result-bottom">
+
+            <div class="result-actions">
+
+              <button
+                id="copyBtn"
+                class="secondary-button"
+                type="button"
+              >
+                <svg viewBox="0 0 18 18" aria-hidden="true">
+                  <rect x="6" y="5" width="8" height="10" rx="1.5"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.3"/>
+                  <path d="M11 5V3.8c0-.7-.5-1.3-1.3-1.3H4.5c-.7 0-1.3.6-1.3 1.3v8.2c0 .7.6 1.3 1.3 1.3H6"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.3"/>
+                </svg>
+
+                <span>Copy text</span>
+              </button>
+
+              <button
+                id="downloadBtn"
+                class="primary-button"
+                type="button"
+              >
+                <span>Download searchable PDF</span>
+
+                <svg viewBox="0 0 18 18" aria-hidden="true">
+                  <path d="M9 2.5v9M5.5 8.5 9 12l3.5-3.5M3 15h12"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.4"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"/>
+                </svg>
+              </button>
+
+            </div>
+
+            <p class="pdf-note">
+              Your original page remains the visual layer.
+              OCR text is placed underneath for searching and selection.
+            </p>
+
+            <p
+              id="pdfStatus"
+              class="inline-status"
+              aria-live="polite"
+            ></p>
+
+          </div>
+
         </section>
 
+
+        <!-- HOW IT WORKS -->
         <section
           class="how-it-works"
           aria-labelledby="how-heading"
         >
-          <div class="section-label">HOW IT WORKS</div>
 
-          <h2 id="how-heading">
-            Your page stays in your browser.
-          </h2>
+          <div class="section-intro">
 
-          <div class="steps">
+            <div class="section-number">03</div>
 
-            <div class="step">
-              <span>01</span>
-              <strong>Choose a page</strong>
-              <p>
-                Upload one JPG, PNG, or WEBP image.
-              </p>
-            </div>
+            <div>
+              <span class="panel-eyebrow">HOW IT WORKS</span>
 
-            <div class="step">
-              <span>02</span>
-              <strong>Read it on-device</strong>
-              <p>
-                Tesseract.js recognizes printed text in a browser worker.
-              </p>
-            </div>
-
-            <div class="step">
-              <span>03</span>
-              <strong>Make it searchable</strong>
-              <p>
-                pdf-lib combines the page image with a selectable OCR layer.
-              </p>
+              <h2 id="how-heading">
+                Simple by design.
+              </h2>
             </div>
 
           </div>
+
+
+          <div class="steps">
+
+            <article class="step">
+
+              <div class="step-top">
+                <span>01</span>
+
+                <div class="step-icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="5" y="3" width="14" height="18" rx="2"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.3"/>
+                    <circle cx="10" cy="9" r="2"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.3"/>
+                    <path d="m7 17 3.5-4 2.5 2 2-2.5 2 4.5"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.3"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"/>
+                  </svg>
+                </div>
+              </div>
+
+              <h3>Choose a page.</h3>
+
+              <p>
+                Add a clear photo or scan of the printed page you want to convert.
+              </p>
+
+            </article>
+
+
+            <article class="step">
+
+              <div class="step-top">
+                <span>02</span>
+
+                <div class="step-icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 12h16M7 7h10M7 17h10"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.3"
+                          stroke-linecap="round"/>
+                    <circle cx="9" cy="12" r="2"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.3"/>
+                  </svg>
+                </div>
+              </div>
+
+              <h3>Let Pagewell read it.</h3>
+
+              <p>
+                OCR recognizes the printed words directly inside your browser.
+              </p>
+
+            </article>
+
+
+            <article class="step">
+
+              <div class="step-top">
+                <span>03</span>
+
+                <div class="step-icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M6 3.5h8l4 4v13H6z"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.3"
+                          stroke-linejoin="round"/>
+                    <path d="M14 3.5v4h4M9 12h6M9 15h6"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.3"
+                          stroke-linecap="round"/>
+                  </svg>
+                </div>
+              </div>
+
+              <h3>Take your PDF.</h3>
+
+              <p>
+                Get an A4 PDF with the original page and a searchable text layer.
+              </p>
+
+            </article>
+
+          </div>
+
+        </section>
+
+
+        <!-- PRIVACY -->
+        <section class="privacy-section">
+
+          <div class="privacy-symbol">
+            <svg viewBox="0 0 28 28" aria-hidden="true">
+              <path d="M14 3.5 22 7v5.8c0 5-3.3 8.7-8 11-4.7-2.3-8-6-8-11V7l8-3.5Z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.3"/>
+              <path d="m10 14 2.5 2.5 5.5-6"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.4"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <div>
+            <span class="panel-eyebrow">PRIVATE BY DEFAULT</span>
+
+            <h2>Your document stays yours.</h2>
+
+            <p>
+              Pagewell performs OCR and PDF creation locally.
+              Your document is never sent to a server.
+            </p>
+          </div>
+
         </section>
 
       </section>
+
     </main>
 
+
+    <!-- FOOTER -->
     <footer class="site-footer">
-      <p>
-        <strong>Privacy first.</strong>
-        Files stay in this browser tab. Nothing is uploaded to
-        On-Device-OCR-PDF or GitHub.
-      </p>
+
+      <div class="footer-brand">
+        <span class="brand-symbol small" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+
+        <strong>Pagewell</strong>
+      </div>
 
       <p>
-        Best for printed pages. Handwriting, unusual layouts, and very large
-        images may reduce accuracy or speed.
+        Photo of a page → searchable PDF.
       </p>
+
+      <span class="footer-note">
+        Built for printed pages · Processed locally
+      </span>
+
     </footer>
 
   </div>
 
+
   <noscript>
     <div class="noscript">
-      JavaScript is required for OCR and PDF creation.
-      Please enable JavaScript in your browser.
+      <div>
+        <strong>JavaScript is required.</strong>
+        <p>Pagewell uses your browser to perform OCR and create searchable PDFs.</p>
+      </div>
     </div>
   </noscript>
 
-  <!-- pdf-lib is loaded immediately because it is lightweight enough for the UI. -->
-  <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
 
-  <!-- Tesseract is intentionally NOT loaded here. app.js lazy-loads it when OCR starts. -->
+  <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
   <script src="app.js"></script>
+
 </body>
 </html>
